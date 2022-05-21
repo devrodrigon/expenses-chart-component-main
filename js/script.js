@@ -1,27 +1,3 @@
-// async function fetchData() {
-//   const result = await fetch('../data.json');
-
-//   return await result.json();
-// }
-
-// console.log(fetchData());
-
-// fetchData().then((data) => {
-//   const section = document.querySelector('.section');
-
-//   data.forEach((item) => {
-//     const div = document.createElement('div');
-
-//     div.innerHTML = `
-//             <span class="amount">${item.amount}</span>
-//             <div class="bar"></div>
-//             <span class="day">${item.day}</span>
-//         `;
-
-//     section.appendChild(div);
-//   });
-// });
-
 fetch('../data.json')
   .then((response) => {
     return response.json();
@@ -45,18 +21,21 @@ fetch('../data.json')
 setTimeout(() => {
   const bar = document.querySelectorAll('.bar');
   const amount = document.querySelectorAll('.amount');
-  console.log(bar);
+  const amounts = [];
+
+  amount.forEach((item) => amounts.push(item.textContent));
+
+  const maxValue = Math.max(...amounts);
 
   bar.forEach((item, index) => {
-    item.style = `height: ${amount[index].innerText}px`;
+    item.style = `height: ${Number(amount[index].innerText) * 2}px`;
+    if (amount[index].textContent == maxValue) {
+      item.classList.add('maxValue');
+      item.parentElement.children[0].style.opacity = 1;
+    }
   });
-}, 100);
 
-// const bar = document.querySelectorAll('.bar');
-// const amount = document.querySelectorAll('.amount');
-// console.log(bar);
+  const total = document.querySelector('.total');
 
-// bar.forEach((item, index) => {
-//   item.style = `height: ${amount[index].innerText}px`;
-//   console.log(index);
-// });
+  total.innerText = amounts.reduce((total, valor) => total + Number(valor), 0);
+}, 600);
