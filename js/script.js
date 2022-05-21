@@ -1,24 +1,22 @@
-fetch('../data.json')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    const section = document.querySelector('.section');
+async function fetchData() {
+  const response = await fetch('../data.json');
+  const data = await response.json();
+  const section = document.querySelector('.section');
+  data.forEach((item) => {
+    const div = document.createElement('div');
 
-    data.forEach((item) => {
-      const div = document.createElement('div');
-
-      div.innerHTML = `
-            <span class="amount">${item.amount}</span>
-            <div class="bar"></div>
-            <span class="day">${item.day}</span>
-        `;
-
-      section.appendChild(div);
-    });
+    div.innerHTML = `
+              <span class="amount">${item.amount}</span>
+              <div class="bar"></div>
+              <span class="day">${item.day}</span>
+          `;
+    section.appendChild(div);
   });
+}
 
-setTimeout(() => {
+async function setHeightBar() {
+  await fetchData();
+
   const bar = document.querySelectorAll('.bar');
   const amount = document.querySelectorAll('.amount');
   const amounts = [];
@@ -38,4 +36,6 @@ setTimeout(() => {
   const total = document.querySelector('.total');
 
   total.innerText = amounts.reduce((total, valor) => total + Number(valor), 0);
-}, 1000);
+}
+
+setHeightBar();
