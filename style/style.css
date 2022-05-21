@@ -26,6 +26,7 @@ body {
     height: 100vh;
     background-color: var(--cream);
     overflow-y:hidden;
+    position: relative
 }
 
 .container {
@@ -97,6 +98,12 @@ body {
     border-radius: 5px;
     font-size: 12px;
     font-weight: 400;
+    opacity: 0;
+    transition: all .3s;
+}
+
+.spending div:hover .amount{
+    opacity: 1;
 }
 
 .spending .bar{
@@ -109,10 +116,22 @@ body {
     transition-timing-function: ease-in-out;
 }
 
+.spending .maxValue{
+    width: 40px;
+    background-color: var(--cyan);
+    border-radius: 5px;
+    animation-name: spending-bar;
+    animation-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+
 .spending .bar:hover {
 
-    background-color: var(--cyan);
-    transition: 0.3s;
+    /* background-color: var(--soft-red); */
+    opacity: 90%;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+    
     
 }
 
@@ -127,6 +146,17 @@ body {
     font-size: 10px;
     font-weight: 400;
     color: var(--medium-brown);
+}
+
+.spending .section amount {
+    display: block;
+    visibility: hidden;
+}
+
+.spending .section amount:hover {
+
+    display: block;
+
 }
 
 
