@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+* {
+
+    font-family: 'DM Sans', sans-serif;
+}
+
+:root{
+    /*primary*/
+    --soft-red: hsl(10, 79%, 65%);
+    --cyan: hsl(186, 34%, 60%);
+
+    /*neutral*/
+
+    --dark-brown: hsl(25, 47%, 15%);
+    --medium-brown: hsl(28, 10%, 53%);
+    --cream: hsl(27, 66%, 92%);
+    --very-pale-orange: hsl(33, 100%, 98%);
+}
+
+body {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--cream);
+    overflow-y:hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.balance {
+    
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: var(--soft-red);
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+}
+
+.left {
+    color: var(--cream);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left h4{
+
+    font-weight: 400;
+    font-size: 0.7rem;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.right {
+
+    display: flex;
+    align-items: center;
+}
+
+.spending{
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    color: var(--dark-brown);
+
+}
+
+.spending section {
+    display: flex;
+    gap: 10px;
+}
+.spending section div{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+    
+}
+
+.spending .amount{
+    background-color: var(--dark-brown);
+    color:var(--cream);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.spending .bar{
+    width: 40px;
+   /*  height: 100px; */
+    background-color: var(--soft-red);
+    border-radius: 5px;
+    animation-name: spending-bar;
+    animation-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+
+.spending .bar:hover {
+
+    background-color: var(--cyan);
+    transition: 0.3s;
+    
+}
+
+@keyframes spending-bar {
+
+    from {height: 0px;}
+    
+    
+}
+
+.spending .day{
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--medium-brown);
+}
+
+
+.result{
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--cream);
+    display: flex;
+    justify-content: space-between;
+    color: var(--dark-brown);
+
+}
+
+.result .result-left span{
+    font-size: 12px;
+    color: var(--medium-brown);;
+}
+
+.result .result-left h2{
+    margin: 0;
+}
+
+.result .result-right{
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+}
+
+.result .result-right span:first-child{
+    text-align: end;
+    color: var(--dark-brown);
+    font-weight: 700;
+}
+
+.result .result-right span:last-child{
+    font-size: 12px;
+    color:var(--medium-brown )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.attribution {
+    text-decoration: none;
+    position: absolute;
+    bottom: 5px;
+    text-align: center;
+}
+
+.attribution a {
+
+    text-decoration: none;
+}
