@@ -38,4 +38,4 @@ setTimeout(() => {
   const total = document.querySelector('.total');
 
   total.innerText = amounts.reduce((total, valor) => total + Number(valor), 0);
-}, 600);
+}, 1000);
